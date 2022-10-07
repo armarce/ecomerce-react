@@ -1,0 +1,401 @@
+/*
+
+https://colorhunt.co/palette/c6d57ed57e7ea2cdcdffe1af
+
+*/
+
+html {
+    box-sizing: border-box;
+    --teal-light: #C3F8FF;
+    --teal: #A2CDCD;
+    --gray: #CCCCCC;
+    --blue-dark: #354259;
+    --white: #F2F2F2;
+    --black: #222222;
+    --white2: #EFFFFD;
+    --pink: #DD5353;
+    --gren-light: #C6D57E;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+#root #container{
+    display: grid;
+    grid-template-areas: 'navbar navbar'
+                        'sidebar main'
+                        'footer footer';
+    grid-template-columns: 300px 1fr;
+    position: relative;
+    min-height: 100vh;
+}
+.accordion-button[aria-expanded=true]{
+    background-color: var(--white2);
+    color: var(--blue-dark);
+    font-weight: bold;
+}
+.accordion-button[aria-expanded=false]{
+    background-color: var(--white2);
+}
+#navbar{
+    grid-area: navbar;
+    height: 4rem;
+}
+#navbar i{
+    margin-left: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+#navbar i:hover{
+    opacity: 1;
+}
+#sidebar{
+    grid-area: sidebar;
+    margin: 2rem 0 2rem 2rem;
+}
+#sidebar #price label{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+#sidebar #price label input{
+    display: block;
+    outline: none;
+    width: 170px;
+}
+#sidebar #price button{
+    margin-bottom: 1rem;
+    background-color: var(--pink);
+    border: none;
+    opacity: 0.8;
+}
+#sidebar #price button:hover{
+    opacity: 1;
+}
+
+#sidebar ul#categories{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#sidebar ul#categories li{
+    padding: 0.6rem;
+    cursor: pointer;
+}
+#sidebar ul#categories li:hover{
+    background-color: var(--white2);
+}
+#container main{
+    grid-area: main;
+    margin: 2rem;
+    padding-bottom: 8rem;
+}
+#container main .input-group{
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 2rem;
+}
+#container main .input-group input{
+    outline: none;
+}
+#container main .input-group input:focus{
+    outline: none;
+    box-shadow: none;
+}
+#container main .input-group button{
+    background-color: var(--pink);
+    color: var(--white);
+    opacity: 0.8;
+}
+#container main .input-group button:hover{
+    opacity: 1;
+    background-color: var(--pink);
+}
+ul.products{
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+    justify-content: space-around;
+}
+ul.products li{
+    margin: 0 auto;
+    cursor: pointer;
+}
+ul.products li:hover .card-body{
+    background-color: var(--white2);
+}
+ul.products li img{
+    padding: 1rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-bottom: 1px solid var(--gray);
+}
+
+ul.products li .card-title{
+    height: 2rem;
+    line-height: 1.6rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+ul.products li .footer-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul.products li .footer-card span{
+    font-weight: bold;
+}
+ul.products li .footer-card i{
+    font-size: 1.4rem;
+    padding: 0.8rem;
+    background-color: var(--teal-light);
+    color: var(--blue-dark);
+    border-radius: 50%;
+    cursor: pointer;
+}
+ul.products li .footer-card i:hover{
+    background-color: var(--teal);
+}
+nav{
+    background-color: var(--gren-light);
+}
+nav .container-fluid{
+    padding: 0 1rem;
+}
+nav .navbar-brand{
+    text-transform: uppercase;
+    color: var(--dark);
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+}
+nav .navbar-brand:hover{
+    opacity: 1;
+}
+footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: var(--black);
+    padding: 2rem 1rem;
+    height: fit-content;
+    color: var(--white);
+}
+footer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+footer ul li a{
+    color: var(--dark);
+    font-size: 2rem;
+}
+footer ul li a:hover{
+    color: var(--gray)
+}
+
+/*** Spinner ***/
+
+
+#loader{
+    position: absolute;
+    position: fixed;
+    z-index: 99;
+    display: grid;
+    align-items: center;
+    width: 98vw;
+    height: 98vh;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+.spinner {
+    margin: 0 auto;
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m: 
+        conic-gradient(#0000 10%,#000),
+        linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+    -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+    animation: s3 1s infinite linear;
+}
+  @keyframes s3 {to{transform: rotate(1turn)}}
+
+/*** Product ***/
+
+#root div#container-product{
+    display: grid;
+    grid-template-areas: 'navbar'
+                        'main'
+                        'footer';
+    grid-template-columns: 1fr;
+    position: relative;
+    min-height: 100vh;
+}
+h1{
+    background-color: red;
+}
+#root div#container-product main{
+    display: grid;
+    grid-template-areas: 'breadcrumb breadcrumb '
+                        'carousel description'
+                        'related related';
+    grid-template-columns: 420px 1fr;
+    width: 64%;
+    column-gap: 2rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 12rem;
+}
+#breadcrumb{
+    grid-area: breadcrumb;
+    height: 2rem;
+    background-color: transparent;
+}
+#carousel{
+    grid-area: carousel;
+}
+#description{
+    grid-area: description;
+}
+#related{
+    grid-area: related;
+}
+.carousel-item{
+    height: 400px;
+}
+#carousel img{
+    width: 300px;
+    aspect-ratio: 1/1.2;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+#root div#container-product #description #info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+#root div#container-product #description #info .label{
+    opacity: 0.6;
+}
+#root div#container-product #description #info #controls{
+    display: flex;
+}
+#root div#container-product #description #info #controls #value{
+    width: 3rem;
+    height: 2rem;
+    line-height: 2rem;
+    border: 1px solid var(--gray);
+    text-align: center;
+}
+#root div#container-product #description #info #controls button{
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--gray);
+    outline: none;
+}
+#root div#container-product #description button#add-cart, #login-button, .checkout{
+    background-color: var(--pink);
+    margin-top: 2rem;
+    height: 2.4rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--white);
+    opacity: 0.9;
+}
+#root div#container-product #description button#add-cart:hover, #login-button:hover, .checkout:hover{
+    opacity: 1;
+}
+
+/** Login **/
+
+#root div#container-login main{
+    display: grid;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+#root div#container-login main form{
+    margin: 0 auto;
+    width: 400px;
+}
+#test-data{
+    padding: 1rem;
+    background-color: var(--white2);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    line-height: 2rem;
+}
+#test-data i{
+    width: 2rem;
+}
+h5{
+    padding: 1rem;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+.cart-card{
+    margin-bottom: 1rem;
+}
+.delete-item{
+    float: right;
+}
+.info-product-cart{
+    display:flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.info-product-cart .quantity{
+    padding: 6px 10px;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+}
+.purchase-card{
+    margin: 2rem auto;
+    margin-bottom: 1rem;
+}
+#container-purchases main{
+    margin: 2rem;
+    padding-bottom: 8rem;
+}
+#container-purchases main h2{
+    margin-top: 1rem;
+}
+.purchase-info{
+    display: flex;
+    justify-content: space-between;
+}
+.purchase-info .quantity{
+    border: 1px solid var(--gray);
+    padding: 6px 10px;
+}
+.purchase-info .link-product{
+    cursor: pointer;
+}
+.clear{
+    clear: both;
+}
