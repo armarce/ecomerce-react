@@ -10,6 +10,7 @@ import { Login } from './pages/Login';
 import { CartSidebar } from './components/CartSidebar';
 import { ProtectedRoutes } from './components/ProtectedRoutes';
 import { Purchases } from './pages/Purchases';
+import { User } from './pages/User';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/login/" element={<Login/>}/>
             <Route element={<ProtectedRoutes />}>
               <Route path="/purchases" element={<Purchases/>} />
+              <Route path="/user/" element={<User/>}/>
             </Route>
           </Routes>
         </HashRouter>

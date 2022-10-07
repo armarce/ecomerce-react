@@ -50,6 +50,12 @@ export const Product = () => {
 
     const addProductCart = () => {
 
+        if(localStorage.getItem("token") === null){
+
+            navigate('/login/');
+    
+        }
+
         dispatch(postCartThunk({"id": id, "quantity": quantity}));
 
     }

@@ -12,15 +12,16 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const submit = (data) => {
-        console.log(data);
+        
         axios
           .post("https://ecommerce-api-react.herokuapp.com/api/v1/users/login", data)
           .then((res) => {
             localStorage.setItem("token", res.data.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data.data.user));
             navigate("/");
           })
           .catch((error) => {
-            if (error.response?.status === 401) {
+            if (error.response?.status === 404) {
               alert("Credenciales inválidas");
             }
             console.log(error.response);

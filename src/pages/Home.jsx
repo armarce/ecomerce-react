@@ -18,6 +18,12 @@ export const Home = () => {
 
     const addProductCart = id => {
 
+        if(localStorage.getItem("token") === null){
+
+            navigate('/login/');
+    
+        }
+
         dispatch(postCartThunk({"id": id, "quantity": 1}));
 
     }

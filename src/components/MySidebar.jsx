@@ -18,7 +18,9 @@ export const MySidebar = () => {
 
   }
 
-  const filterByPrice = () => {
+  const filterByPrice = e => {
+
+    e.preventDefault();
 
     dispatch(getProductsByPriceThunk(start, end));
     
@@ -31,7 +33,7 @@ export const MySidebar = () => {
         <Accordion.Item eventKey="0">
           <Accordion.Header>Price</Accordion.Header>
           <Accordion.Body>
-            <form id="price" onSubmit={() => filterByPrice()}>
+            <form id="price" onSubmit={(e) => filterByPrice(e)}>
               <label htmlFor="start">
                 <div>From</div><input type="number" value={start} onChange={e => setStart(e.target.value)} id="start"/>
               </label>

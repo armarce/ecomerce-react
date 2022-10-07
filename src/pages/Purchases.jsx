@@ -37,16 +37,16 @@ export const Purchases = () => {
                     {
                         purchases.map(purchase => (
 
-                        <Card className="purchase-card">
-                            <Card.Header>{getDate(purchase.createdAt)}</Card.Header>
+                        <Card className="purchase-card" key={purchase.createdAt}>
+                            <Card.Header><b>{getDate(purchase.createdAt)}</b></Card.Header>
                             <ListGroup variant="flush">
 
                                 {purchase.cart.products.map(product => (
 
                                     <ListGroup.Item key={product.id} className="purchase-info">
-                                        <span class="link-product" onClick={() => navigate(`/product/${product.id}`)}>{product.title}</span>
-                                        <div class="quantity">{product.productsInCart.quantity}</div>
-                                        <span><b>${Number(product.price) * product.productsInCart.quantity}</b></span>
+                                        <span className="link-product" onClick={() => navigate(`/product/${product.id}`)}>{product.title}</span>
+                                        <div className="quantity">{product.productsInCart.quantity}</div>
+                                        <span className="price"><b>${Number(product.price) * product.productsInCart.quantity}</b></span>
                                     </ListGroup.Item>
 
                                 ))

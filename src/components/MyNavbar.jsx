@@ -17,11 +17,6 @@ export const MyNavbar = () => {
         navigate('/');
         
     }
-
-    const logout = () => {
-      localStorage.setItem("token", "");
-      navigate("/login");
-    };
   
     const [show, setShow] = useState(false);
   
@@ -43,7 +38,7 @@ export const MyNavbar = () => {
                         <i className="fa-solid fa-cart-shopping" onClick={handleShow}></i>
                     </Navbar.Text>
                     <Navbar.Text>
-                        <i className="fa-solid fa-user" onClick={()=> navigate('/login/')}></i>
+                        <i className="fa-solid fa-user" onClick={()=> navigate('/user/')}></i>
                     </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

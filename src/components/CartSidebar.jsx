@@ -6,10 +6,10 @@ import { deleteCartItemThunk, getCartThunk, purchaseCartCheckoutThunk } from "..
 
 export const CartSidebar = ({ show, handleClose }) => {
 
+    const navigate = useNavigate();
+
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
-    
-    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(getCartThunk());

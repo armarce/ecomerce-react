@@ -43,6 +43,7 @@ html {
 }
 #navbar i{
     margin-left: 2rem;
+    color: var(--white);
     font-size: 1.4rem;
     cursor: pointer;
     opacity: 0.8;
@@ -166,19 +167,20 @@ ul.products li .footer-card i:hover{
     background-color: var(--teal);
 }
 nav{
-    background-color: var(--gren-light);
+    background-color: var(--blue-dark);
 }
 nav .container-fluid{
     padding: 0 1rem;
 }
 nav .navbar-brand{
     text-transform: uppercase;
-    color: var(--dark);
+    color: var(--white2);
     font-weight: bold;
     cursor: pointer;
     opacity: 0.8;
 }
 nav .navbar-brand:hover{
+    color: var(--white2);
     opacity: 1;
 }
 footer {
@@ -390,16 +392,100 @@ h5{
     margin-top: 1rem;
 }
 .purchase-info{
-    display: flex;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 60px 120px;
     justify-content: space-between;
 }
 .purchase-info .quantity{
     border: 1px solid var(--gray);
     padding: 6px 10px;
+    width: fit-content;
+}
+.purchase-info .price{
+    text-align: right;
 }
 .purchase-info .link-product{
     cursor: pointer;
 }
 .clear{
     clear: both;
+}
+#user{
+    width: 280px;
+    padding: 1rem;
+}
+#user .icon-user{
+    font-size: 8rem;
+    text-align: center;
+    width: 100%;
+    aspect-ratio: 1;
+    line-height: 6rem;
+    padding: 4rem 0;
+    border-radius: 50%;
+    background-color: var(--white2);
+}
+
+@media screen and (max-width: 760px){
+    #root #container{
+        grid-template-areas: 'navbar'
+                            'sidebar'
+                            'main'
+                            'footer';
+        grid-template-columns: 1fr;
+    }
+    #sidebar{
+        grid-area: sidebar;
+        margin: 1rem;
+    }
+    #container main .input-group{
+        width: 80%;
+    }
+    #container main{
+        margin: 1rem;
+        padding-bottom: 8rem;
+    }
+    #navbar{
+        height: auto;
+    }
+    #root div#container-product main{
+        grid-template-areas: 'breadcrumb'
+                            'carousel'
+                            'description'
+                            'related';
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 1rem;
+        padding-bottom: 12rem;
+    }
+    #description{
+        
+    }
+    .carousel-item{
+        height: 400px;
+    }
+    #carousel{
+        width: 300px;
+    }
+    #carousel img{
+        width: 260px;
+        aspect-ratio: 1/1.2;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+    #container-purchases main{
+        margin: 1rem;
+        width: 100%;
+    }
+    .purchase-card{
+        margin: 0;
+        margin-bottom: 1rem;
+        width: 90%;
+    }
+    .purchase-info{
+        display: grid;
+        grid-template-columns: 1fr 40px 40px;
+        justify-content: space-between;
+    }
 }
