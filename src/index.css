@@ -378,8 +378,12 @@ h5{
     margin: 2rem auto;
     margin-bottom: 1rem;
 }
+#container-purchases{
+    position: relative;
+}
 #container-purchases main{
-    margin: 2rem;
+    margin: 0 auto;
+    width: 60%;
     padding-bottom: 8rem;
 }
 #container-purchases main h2{

@@ -14,9 +14,11 @@ export const Home = () => {
 
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+
     const addProductCart = id => {
 
-        useDispatch(postCartThunk({"id": id, "quantity": 1}));
+        dispatch(postCartThunk({"id": id, "quantity": 1}));
 
     }
 
@@ -32,16 +34,16 @@ export const Home = () => {
                 {
                     products?.map(product => (
 
-                        <li key={product.id} onClick={() => navigate(`/product/${product.id}`)}>
+                        <li key={product.id}>
                             <Card style={{ width: '18rem' }} >
-                                <Card.Img variant="top" src={product.productImgs[1]} />
+                                <Card.Img variant="top" onClick={() => navigate(`/product/${product.id}`)} src={product.productImgs[1]} />
                                 <Card.Body>
-                                    <Card.Title>{product.title}</Card.Title>
+                                    <Card.Title onClick={() => navigate(`/product/${product.id}`)}>{product.title}</Card.Title>
                                 </Card.Body>
                                 <Card.Body>
                                 <div className="footer-card">
                                     <span>${product.price}</span>
-                                    <i className="fa-solid fa-cart-shopping"></i>
+                                    <i className="fa-solid fa-cart-shopping" onClick={() => addProductCart(product.id)}></i>
                                 </div>
                                 </Card.Body>
                             </Card>
