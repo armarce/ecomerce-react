@@ -29,6 +29,10 @@ html {
     position: relative;
     min-height: 100vh;
 }
+a{
+    color: var(--blue-dark);
+    text-decoration: none;
+}
 .accordion-button[aria-expanded=true]{
     background-color: var(--white2);
     color: var(--blue-dark);
@@ -272,6 +276,7 @@ h1{
     grid-area: breadcrumb;
     height: 2rem;
     background-color: transparent;
+    margin-bottom: 1rem;
 }
 #carousel{
     grid-area: carousel;
