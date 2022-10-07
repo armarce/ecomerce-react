@@ -20,7 +20,7 @@ export const CartSidebar = ({ show, handleClose }) => {
     dispatch(deleteCartItemThunk(id)); 
     
     }
-    
+
     const checkout = () => {
 
         dispatch(purchaseCartCheckoutThunk());

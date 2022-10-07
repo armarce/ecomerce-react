@@ -2,16 +2,12 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export const ProtectedRoutes = () => {
 
-  const tokenExists = () => localStorage.getItem("token") !== "";
-
-  if (tokenExists()) {
-
-    return <Outlet/>;
-
-  }else{
-
-    return <Navigate to="/login"/>;
-
-  }
-
-};
+  if (localStorage.getItem("token") === null) {
+    
+    return <Navigate to="/login" />;
+    
+  } else {
+    
+    return <Outlet />;
+  } 
+}; 
